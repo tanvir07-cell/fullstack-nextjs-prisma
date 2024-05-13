@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
+import { dark, neobrutalism } from "@clerk/themes";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +17,44 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <ClerkProvider
+      appearance={{
+        baseTheme: [neobrutalism],
+        variables: {
+          colorBackground: "#124949",
+          colorText: "#FFFFFF",
+          colorInputText: "#000000",
+          colorPrimary: "#107361",
+          colorTextOnPrimaryBackground: "#fff",
+          colorDanger: "#FF0000",
+          colorNeutral: "#000000",
+          colorSuccess: "#00FF00",
+          fontSize: "1rem",
+          fontFamily: inter.className,
+
+          // colorTextOnPrimaryBackground: "#FFFFFF",
+          // colorDanger: "#FF0000",
+          // colorNeutral: "#000000",
+          // colorSuccess: "#00FF00",
+        },
+
+        // signIn: {
+        //   variables: {
+        //     colorBackground: "#124949",
+        //     colorText: "#FFFFFF",
+        //     colorInputText: "#000000",
+        //     colorPrimary: "#107361",
+        //     colorTextOnPrimaryBackground: "#FFFFFF",
+        //     colorDanger: "#FF0000",
+        //     colorNeutral: "#000000",
+        //     colorSuccess: "#00FF00",
+        //   },
+        // },
+      }}
+    >
+      <html lang="en">
+        <body className={inter.className}>{children}</body>
+      </html>
+    </ClerkProvider>
   );
 }
