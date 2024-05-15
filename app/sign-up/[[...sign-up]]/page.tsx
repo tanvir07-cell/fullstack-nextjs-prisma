@@ -1,9 +1,10 @@
 import { SignUp } from "@clerk/nextjs";
 
-const SignUpPage = (props) => {
+const SignUpPage = () => {
   return (
     <div className="flex items-center justify-center h-screen w-screen">
-      <SignUp />
+      <SignUp forceRedirectUrl="/new-user" fallbackRedirectUrl="/new-user" />
+      <div id="clerk-captcha"></div>
     </div>
   );
 };
