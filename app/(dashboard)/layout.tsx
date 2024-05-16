@@ -38,7 +38,12 @@ const DashboardLayout = ({ children }: PropsWithChildren<{}>) => {
         </div>
         {/* Page content here */}
 
-        <div className="h-[100vh] w-full flex items-center justify-center">
+        <div
+          className=" container mx-auto
+          
+       
+        "
+        >
           {children}
         </div>
       </div>

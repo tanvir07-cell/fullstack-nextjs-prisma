@@ -2,6 +2,94 @@
 @tailwind components;
 @tailwind utilities;
 
-.cl-internal-1p733cp {
-  color: rebeccapurple !important;
+#in,
+#out,
+#code {
+  position: absolute;
+  box-sizing: border-box;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  padding: 10px;
+  background: #f9f9f9;
+  border: none;
+  font: inherit;
+}
+#in {
+  left: 0;
+  background: #fff;
+  outline: none;
+  border-top: 4px solid red; /* Top border in red */
+  border-right: 4px solid blue; /* Right border in blue */
+  border-bottom: 4px solid green; /* Bottom border in green */
+  border-left: 4px solid yellow; /* Left border in yellow */
+  animation: border 2s linear;
+}
+
+@keyframes border {
+  0% {
+    border-top-color: red;
+    border-right-color: blue;
+    border-bottom-color: green;
+    border-left-color: yellow;
+  }
+  25% {
+    border-top-color: yellow;
+    border-right-color: red;
+    border-bottom-color: blue;
+    border-left-color: green;
+  }
+  50% {
+    border-top-color: green;
+    border-right-color: yellow;
+    border-bottom-color: red;
+    border-left-color: blue;
+  }
+  75% {
+    border-top-color: blue;
+    border-right-color: green;
+    border-bottom-color: yellow;
+    border-left-color: red;
+  }
+  100% {
+    border-top-color: red;
+    border-right-color: blue;
+    border-bottom-color: green;
+    border-left-color: yellow;
+  }
+}
+
+#out,
+#code {
+  left: 50%;
+  height: 75%;
+  border-left: 1px solid #ccc;
+  overflow: auto;
+}
+#code {
+  top: 75%;
+  height: 25%;
+  background: #333;
+  color: #ddd;
+  margin: 0;
+}
+
+/** Markdown styling */
+br {
+  content: "A";
+  display: block;
+  margin-bottom: 0.5em;
+}
+code {
+  padding: 0 3px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background: #fff;
+}
+pre.code > code {
+  display: block;
+  padding: 2px 5px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-left-width: 3px;
 }
