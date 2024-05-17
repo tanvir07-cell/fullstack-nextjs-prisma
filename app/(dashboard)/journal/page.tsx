@@ -24,7 +24,7 @@ const DashboardPage = async () => {
         <NewEntryCard />
       </div>
 
-      <div className="w-[50%] mx-auto grid grid-cols-2 gap-10 ">
+      <div className="sm:w-[50%] w-[80%] mx-auto sm:mx-auto sm:grid sm:grid-cols-2 grid grid-cols-1 gap-10 ">
         {entries.map((entry) => {
           return (
             <Link key={entry.id} href={`/journal/${entry.id}`} passHref>
