@@ -1,6 +1,6 @@
 import { getUserFromDB } from "@/utils/auth";
 import prisma from "@/utils/db";
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 
 export const POST = async (req: NextRequest, res: NextResponse) => {
@@ -14,6 +14,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
   });
 
   revalidatePath("/journal");
+  revalidateTag("/journal");
 
   return NextResponse.json({
     data: result,

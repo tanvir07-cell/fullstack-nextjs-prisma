@@ -7,7 +7,9 @@ const NewEntryCard = () => {
   const router = useRouter();
   const handleNewEntry = async () => {
     const entry = await createNewEntry();
+
     router.push(`/journal/${entry.id}`);
+    router.refresh();
   };
   return (
     <div className="card w-96 bg-[#55BF8B]/40 shadow-xl text-white">
